@@ -12,7 +12,12 @@ git clone git@github.com:alamansky/.home.git ~/.home
 ```
 ln -s ~/.home/{.cache,.config,.local} ~
 ```
-3. Install ansible
+3. Source env files in `~/.profile` so interactive login bash shell can run ansible playbook  
+```
+echo "source $HOME/.config/env/{vars.sh,path.sh}" >> .profile
+source ~/.profile
+```
+4. Install ansible
 
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu
 
