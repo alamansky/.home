@@ -1,0 +1,43 @@
+---
+- name: Run Pre-Install Command(s)
+  include_tasks: tasks/run_command.yml
+  loop: "{{ item.pre }}"
+  loop_control:
+    loop_var: command
+  when: item.pre is defined
+- name: Create Install Directory for Binary File
+  vars:
+  - directory: "{{ item.destination }}"
+  include_tasks: tasks/create_directory.yml
+- name: Download File
+  vars:
+  - url: "{{ item.url }}"
+    dest: "{{ item.destination }}"
+  include_tasks: tasks/download_file.yml
+- name: Unarchive File
+  vars:
+  - src: "{{ item.destination }}/{{ item.archive }}"
+    dest: "{{ item.destination }}"
+    creates: "{{ item.destination }}/{{ item.file }}"
+  include_tasks: tasks/unarchive_file.yml
+- name: Delete Archive
+  vars:
+  - path: "{{ item.destination }}/{{ item.archive }}"
+  include_tasks: tasks/delete_file.yml
+- name: Add to Path
+  vars:
+  - path: "$XDG_CONFIG_HOME/env/path.sh"
+    line: "{{ item.destination }}"
+  include_tasks: tasks/add_to_path.yml
+- name: Update File(s)
+  include_tasks: tasks/update_files.yml
+  loop: "{{ item.update_files | dict2items }}"
+  loop_control:
+    loop_var: file_content
+  when: item.update_files is defined
+- name: Run Post-Install Command(s)
+  include_tasks: tasks/run_command.yml
+  loop: "{{ item.post }}"
+  loop_control:
+    loop_var: command
+  when: item.post is defined

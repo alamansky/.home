@@ -1,0 +1,6 @@
+---
+- name: Rename File
+  command: "mv {{ item.destination }}/{{ item.file }} {{ item.destination }}/{{ item.name }}"
+  args:
+    creates: "{{ item.destination }}/{{ item.name }}"
+    removes: "{{ item.destination }}/{{ item.file }}"

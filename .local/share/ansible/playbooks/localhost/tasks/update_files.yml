@@ -1,0 +1,10 @@
+---
+- name: Source In Shell
+  lineinfile:
+    path: "{{ file_content.key }}"
+    line: "{{ file_line }}"
+    state: present
+    create: yes
+  loop: "{{ file_content.value }}"
+  loop_control:
+    loop_var: file_line 
