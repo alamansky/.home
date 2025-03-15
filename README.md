@@ -14,7 +14,7 @@ ln -s ~/.home/{.cache,.config,.local} ~
 ```
 3. Source env files in `~/.profile` so interactive login bash shell can run ansible playbook  
 ```
-echo "source $HOME/.config/env/{vars.sh,path.sh}" >> .profile
+printf "source ~/.config/env/vars.sh\nsource ~/.config/env/path.sh" >> ~/.profile
 source ~/.profile
 ```
 4. Install ansible
@@ -30,4 +30,9 @@ sudo apt install software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 # install ansible
 sudo apt install ansible
+```
+5. Run the ansible playbook for localhost.   
+```
+# use the -t flag to specify tags and use the playbook's when fields for granular control
+ansible-playbook ~/.local/share/ansible/playbooks/localhost/playbook.yml
 ```
