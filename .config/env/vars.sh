@@ -29,3 +29,5 @@ export AZURE_CONFIG_DIR="$XDG_DATA_HOME/azure"
 
 export EDITOR="nvim"
 export BROWSER="firefox"
+
+# machine-generated appends (e.g. from ansible):

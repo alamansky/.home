@@ -1,0 +1,30 @@
+items:
+  - name: aichat
+    version: 0.27.0
+    url: https://github.com/sigoden/aichat/releases/download/v0.27.0/aichat-v0.27.0-x86_64-unknown-linux-musl.tar.gz
+    archive: aichat-v0.27.0-x86_64-unknown-linux-musl.tar.gz
+    file: aichat-v0.27.0-x86_64-unknown-linux-musl
+    destination: $HOME/.local/bin/me/aichat/0.27.0
+  - name: asdf
+    version: 0.16.2
+    url: https://github.com/asdf-vm/asdf/releases/download/v0.16.2/asdf-v0.16.2-linux-amd64.tar.gz
+    archive: asdf-v0.16.2-linux-amd64.tar.gz
+    file: asdf-v0.16.2-linux-amd64
+    destination: $HOME/.local/bin/me/asdf/0.16.2
+    update_files:
+      $HOME/.config/env/vars.sh:
+        - export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
+        - export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
+        - export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+  - name: fzf
+    version: 0.58.0
+    url: https://github.com/junegunn/fzf/releases/download/v0.58.0/fzf-0.58.0-linux_amd64.tar.gz
+    archive: fzf-0.58.0-linux_amd64.tar.gz
+    file: fzf-0.58.0-linux_amd64
+    destination: $HOME/.local/bin/me/fzf/0.58.0
+  - name: zellij
+    version: 0.41.2
+    url: https://github.com/zellij-org/zellij/releases/download/v0.41.2/zellij-x86_64-unknown-linux-musl.tar.gz 
+    archive: zellij-x86_64-unknown-linux-musl.tar.gz
+    file: zellij-x86_64-unkknown-linux-musl
+    destination: $HOME/.local/bin/me/zellij/0.41.2
