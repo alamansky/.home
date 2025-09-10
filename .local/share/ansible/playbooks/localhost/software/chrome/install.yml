@@ -1,0 +1,16 @@
+- name: install chrome
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+  tasks:
+    - name: install deb package
+      include_tasks:
+        file: ../../library/tasks/install_deb_package.yml
+    - name: add alias
+      lineinfile:
+        path: $XDG_CONFIG_HOME/env/alias.sh
+        line: "{{ alias }}"
+        create: yes
+        state: present
+        insertafter: EOF

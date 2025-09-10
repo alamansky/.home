@@ -1,0 +1,25 @@
+- name: install omp
+  hosts: localhost
+  vars_files:
+    - data.yml
+  vars:
+    - command: curl -s "{{ script }}" | bash -s -- -d "{{ destination }}"
+  tasks:
+    - name: install unzip dependency
+      include_tasks:
+        file: ../../software/unzip/install.yml
+    - name: run install script
+      include_tasks:
+        file: ../../library/tasks/run_install_script.yml
+    - name: initialize
+      lineinfile:
+        path: $XDG_CONFIG_HOME/zsh/.zshrc
+        line: |
+          # set theme
+          # https://ohmyposh.dev/docs/installation/customize
+          export OMP_THEME="agnoster.minimal"
+          [[ -x "$(command -v oh-my-posh)" ]] && \
+            eval "$(oh-my-posh init zsh --config ${XDG_CACHE_HOME}/oh-my-posh/themes/${OMP_THEME}.omp.json)"
+        state: present
+        create: yes
+        insertafter: EOF

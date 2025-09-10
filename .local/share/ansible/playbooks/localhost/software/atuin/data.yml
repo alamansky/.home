@@ -1,0 +1,7 @@
+# type: file download
+name: atuin
+url: https://github.com/atuinsh/atuin/releases/download/v18.3.0/atuin-x86_64-unknown-linux-gnu.tar.gz
+archive: atuin-x86_64-unknown-linux-gnu.tar.gz
+file: atuin-x86_64-unknown-linux-gnu
+destination: /opt/managed/atuin/18.3.0
+path: /opt/managed/atuin/18.3.0/atuin-x86_64-unknown-linux-gnu/atuin

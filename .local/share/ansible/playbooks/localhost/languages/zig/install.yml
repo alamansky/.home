@@ -1,0 +1,8 @@
+- name: install zig
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install language
+      include_tasks:
+        file: ../../library/tasks/install_language.yml

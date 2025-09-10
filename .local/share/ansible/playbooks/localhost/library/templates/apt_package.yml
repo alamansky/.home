@@ -1,0 +1,2 @@
+# type: apt package
+name: # the name of the package to download with the apt package manager

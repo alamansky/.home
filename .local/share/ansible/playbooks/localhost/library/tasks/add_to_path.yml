@@ -1,0 +1,10 @@
+# path_file - path to a file containing 'export PATH="$PATH:xyz"' statements to be sourced by the login shell 
+# path - the path of the executable to add to the $PATH env var
+# destination - the install destination of the executable (fallback to path)
+- name: add to path
+  lineinfile:
+    path: "{{ path_file }}"
+    line: 'export PATH="$PATH:{{ path | default(destination, true) }}"'
+    state: present
+    create: yes
+    insertafter: EOF

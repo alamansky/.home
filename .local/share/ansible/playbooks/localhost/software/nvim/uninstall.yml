@@ -1,0 +1,25 @@
+---
+- name: uninstall nvim 
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: uninstall binary
+      include_tasks:
+        file: ../../library/uninstall_binary.yml
+    - name: delete config
+      file:
+        path: $XDG_CONFIG_HOME/nvim
+        state: absent
+    - name: delete state
+      file:
+        path: $XDG_STATE_HOME/nvim
+        state: absent
+    - name: delete data
+      file:
+        path: $XDG_DATA_HOME/nvim
+        state: absent
+    - name: delete cache
+      file:
+        path: $XDG_CACHE_HOME/nvim
+        state: absent

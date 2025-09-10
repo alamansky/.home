@@ -1,0 +1,5 @@
+# type: install script
+name: # name of the executable file
+script: # url of the install script  
+destination: # destination directory for the script output
+path: # full path of the executable file

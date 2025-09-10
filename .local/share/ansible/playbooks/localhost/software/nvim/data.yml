@@ -1,0 +1,7 @@
+# type: file download
+name: nvim
+url: https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz
+archive: nvim-linux-x86_64.tar.gz
+file: nvim-linux-x86_64
+destination: /opt/managed/nvim/0.11.3
+path: /opt/managed/nvim/0.11.3/nvim-linux-x86_64/bin/nvim

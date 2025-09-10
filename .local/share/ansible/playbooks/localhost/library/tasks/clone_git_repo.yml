@@ -1,0 +1,14 @@
+- name: create directory
+  file:
+    path: "{{ destination }}"
+    state: directory
+- name: download repo
+  git:
+    repo: "{{ repository }}"
+    dest: "{{ destination }}"
+    update: yes
+    version: "{{ branch }}"
+- name: delete .git
+  file:
+    path: "{{ destination }}/.git"
+    state: absent

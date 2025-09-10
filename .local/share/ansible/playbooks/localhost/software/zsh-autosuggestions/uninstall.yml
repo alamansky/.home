@@ -1,0 +1,16 @@
+- name: uninstall zsh-autosuggestions
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: uninstall binary
+      include_tasks:
+        file: ../../library/uninstall_binary.yml
+    - name: unsource
+      lineinfile:
+        path: $XDG_CONFIG_HOME/zsh/.zshrc
+        line: |
+          # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#manual-git-clone
+          [[ -s "{{ destination }}/zsh-autosuggestions.zsh" ]] &&
+            source ${XDG_DATA_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+        state: absent

@@ -1,0 +1,11 @@
+- name: install nvim
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install zig
+      include_tasks:
+        file: ../../languages/zig/install.yml
+    - name: install binary
+      include_tasks:
+        file: ../../library/tasks/download_executable_binary.yml

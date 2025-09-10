@@ -1,7 +1,0 @@
----
-- name: Add To Path 
-  lineinfile:
-    path: "{{ path }}"
-    line: 'export PATH="$PATH:{{ line }}"'
-    state: present
-    create: yes

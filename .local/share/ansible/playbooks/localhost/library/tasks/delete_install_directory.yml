@@ -1,0 +1,10 @@
+# destination - the location of the install directory
+# name - the name of the symlinked executable in the install directory
+- name: delete directory
+  file:
+    path: "{{ destination }}"
+    state: absent
+- name: delete symlinks
+  file:
+    path: "$HOME/.local/bin/{{ name }}"
+    state: absent

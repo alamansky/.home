@@ -1,0 +1,18 @@
+- name: install zsh-autosuggestions
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: clone repo
+      include_tasks:
+        file: ../../library/tasks/clone_git_repo.yml
+    - name: source directory
+      lineinfile:
+        path: $XDG_CONFIG_HOME/zsh/.zshrc
+        line: |
+          # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#manual-git-clone
+          [[ -s "{{ destination }}/zsh-autosuggestions.zsh" ]] &&
+            source ${XDG_DATA_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+        state: present
+        create: yes
+        insertafter: EOF

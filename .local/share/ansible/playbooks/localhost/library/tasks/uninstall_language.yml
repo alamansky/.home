@@ -1,0 +1,2 @@
+- name: uninstall language
+  shell: asdf plugin remove {{ language }}

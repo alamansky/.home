@@ -1,0 +1,5 @@
+# type: repo
+name: nvchad
+repository: https://github.com/NvChad/starter
+branch: main
+destination: $XDG_CONFIG_HOME/nvim

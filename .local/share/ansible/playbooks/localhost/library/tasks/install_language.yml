@@ -1,0 +1,6 @@
+- name: install language
+  shell: |
+    [ -n "$(command -v {{ language }})" ] || \
+    (asdf plugin add {{ language }} {{ plugin }} && asdf install {{ language }} {{ version }})
+- name: set global language version
+  shell: asdf set -u {{ language }} {{ version }}

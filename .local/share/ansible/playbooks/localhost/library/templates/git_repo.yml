@@ -1,0 +1,5 @@
+# type: git repo
+name: # the name of the executable
+repository: # the url of the git repository
+branch: # the branch of the repository to clone
+destination: # the empty destination directory into which to clone the repository
