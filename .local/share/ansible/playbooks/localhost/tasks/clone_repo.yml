@@ -1,6 +1,0 @@
----
-- name: Clone the repository
-  git:
-    repo: "{{ item.url }}"
-    dest: "{{ item.destination }}"
-    version: "{{ item.branch }}"

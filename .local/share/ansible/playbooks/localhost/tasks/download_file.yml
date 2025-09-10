@@ -1,5 +1,0 @@
----
-- name: Download File
-  get_url:
-    url: "{{ url }}"
-    dest: "{{ dest }}"
