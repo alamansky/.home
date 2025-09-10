@@ -1,0 +1,25 @@
+- name: uninstall asdf
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: uninstall binary
+      include_tasks:
+        file: ../../library/uninstall_binary.yml
+    - name: delete env vars
+      lineinfile:
+        path: $XDG_CONFIG_HOME/env/vars.sh
+        search_string: "{{ item }}"
+        state: absent
+      loop:
+        - export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
+        - export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
+        - export PATH="${ASDF_DATA_DIR}/shims:$PATH
+    - name: delete shims
+      file:
+        path: $XDG_DATA_HOME/asdf
+        state: absent
+    - name: delete config
+      file:
+        path: $XDG_CONFIG_HOME/asdf/asdfrc
+        state: absent

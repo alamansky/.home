@@ -1,0 +1,17 @@
+- name: uninstall atuin
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: uninstall binary
+      include_tasks:
+        file: ../../library/uninstall_binary.yml
+    - name: delete history
+      lineinfile:
+        path: $XDG_DATA_HOME/atuin
+        state: absent
+    - name: uninitialize
+      lineinfile:
+        path: $XDG_CONFIG_HOME/zsh/.zshrc
+        regex: atuin
+        state: absent

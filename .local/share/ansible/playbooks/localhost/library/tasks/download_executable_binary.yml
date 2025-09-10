@@ -1,0 +1,32 @@
+# destination - the install destination of the executable (fallback to path)
+# url - the download url of the binary file
+# archive - the name of the archive containing the binary
+# name - the name of the binary once it has been extracted from the archive
+# path - the path of the installed binary
+- name: create directory
+  become: true
+  file:
+    path: "{{ destination }}"
+    state: directory
+- name: download file
+  become: true
+  get_url:
+    url: "{{ url }}"
+    dest: "{{ destination }}"
+- name: extract file
+  become: true
+  unarchive:
+    src: "{{ destination }}/{{ archive }}"
+    dest: "{{ destination }}"
+    creates: "{{ destination }}/{{ name }}"
+    remote_src: yes
+- name: delete archive
+  become: true
+  file:
+    path: "{{ destination }}/{{ archive }}"
+    state: absent
+- name: symlink
+  file:
+    src: "{{ path }}"
+    dest: "$HOME/.local/bin/{{ name }}"
+    state: link

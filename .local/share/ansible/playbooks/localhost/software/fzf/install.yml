@@ -1,0 +1,8 @@
+- name: install fzf
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install binary
+      include_tasks:
+        file: ../../library/tasks/download_executable_binary.yml

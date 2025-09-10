@@ -1,0 +1,10 @@
+- name: install awrit
+  hosts: localhost
+  vars_files:
+    - data.yml
+  vars:
+    - command: curl -s "{{ script }}" | DOWNLOAD_TO="{{ destination }}" bash
+  tasks:
+    - name: run install script
+      include_tasks:
+        file: ../../library/tasks/run_install_script.yml

@@ -1,0 +1,7 @@
+# type: file download
+name: zellij
+url: https://github.com/zellij-org/zellij/releases/download/v0.41.2/zellij-x86_64-unknown-linux-musl.tar.gz
+archive: zellij-x86_64-unknown-linux-musl.tar.gz
+file: zellij-x86_64-unkknown-linux-musl
+destination: /opt/managed/zellij/0.41.2
+path: /opt/managed/zellij/0.41.2/zellij

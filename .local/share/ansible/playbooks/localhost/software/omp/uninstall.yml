@@ -1,0 +1,24 @@
+- name: uninstall omp
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    # uncomment below to uninstall `unzip` dependency
+    #- name: uninstall apt package
+    #  become: true
+    #  apt:
+    #    name: "{{ package }}"
+    #    state: absent
+    - name: uninstall binary
+      include_tasks:
+        file: ../../library/uninstall_binary.yml
+    - name: delete initialization
+      lineinfile:
+        path: $XDG_CONFIG_HOME/zsh/.zshrc
+        state: absent
+        line: |
+          # set theme
+          # https://ohmyposh.dev/docs/installation/customize
+          export OMP_THEME="agnoster.minimal"
+          [[ -x "$(command -v oh-my-posh)" ]] && \
+          eval "$(oh-my-posh init zsh --config ${XDG_CACHE_HOME}/oh-my-posh/themes/${OMP_THEME}.omp.json)"

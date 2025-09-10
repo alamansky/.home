@@ -1,0 +1,19 @@
+- name: install zsh
+  hosts: localhost
+  become: true
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install apt package
+      include_tasks:
+        file: ../../library/tasks/install_apt_package.yml
+    - name: create .zshenv
+      become_user: alamansky
+      lineinfile:
+        path: "{{ env_file }}"
+        line: |
+          # set zsh root directory
+          export ZDOTDIR="$HOME/.config/zsh"
+        state: present
+        create: yes
+        insertbefore: BOF

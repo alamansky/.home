@@ -1,0 +1,7 @@
+# type: file download
+name: rg
+url: https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz
+archive: ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz
+file: ripgrep-14.1.1-x86_64-unknown-linux-musl
+destination: /opt/managed/ripgrep/14.1.1
+path: /opt/managed/ripgrep/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl/rg

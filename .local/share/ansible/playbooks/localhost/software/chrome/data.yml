@@ -1,0 +1,6 @@
+# type: deb package 
+name: google-chrome-stable
+url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+destination: /tmp
+file: google-chrome-stable_current_amd64.deb
+alias: alias chrome="google-chrome-stable"

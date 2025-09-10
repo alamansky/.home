@@ -1,0 +1,18 @@
+- name: uninstall aichat
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: uninstall binary
+      include_tasks:
+        file: ../../library/uninstall_binary.yml
+    - name: delete api key env var
+      lineinfile:
+        path: $XDG_CONFIG_HOME/env/vars.sh
+        search_string: |
+          export GROQ_API_KEY="{{ GROQ_API_KEY }}"
+        state: absent
+    - name: delete config directory
+      file:
+        path: $XDG_CONFIG_HOME/aichat
+        state: absent

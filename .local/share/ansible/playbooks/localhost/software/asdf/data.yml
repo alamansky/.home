@@ -1,0 +1,7 @@
+# type: file download
+name: asdf
+url: https://github.com/asdf-vm/asdf/releases/download/v0.16.2/asdf-v0.16.2-linux-amd64.tar.gz
+archive: asdf-v0.16.2-linux-amd64.tar.gz
+file: asdf-v0.16.2-linux-amd64
+destination: /opt/managed/asdf/0.16.2
+path: /opt/managed/asdf/0.16.2/asdf

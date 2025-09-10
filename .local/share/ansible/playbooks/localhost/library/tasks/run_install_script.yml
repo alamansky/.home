@@ -1,0 +1,8 @@
+- name: run install script
+  become: true
+  shell: "{{ command }}"
+- name: symlink
+  file:
+    src: "{{ path }}"
+    dest: "$HOME/.local/bin/{{ name }}"
+    state: link

@@ -1,0 +1,15 @@
+- name: install atuin
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install binary
+      include_tasks:
+        file: ../../library/tasks/download_executable_binary.yml
+    - name: initialize
+      lineinfile:
+        path: $XDG_CONFIG_HOME/zsh/.zshrc
+        line: "[[ -x \"$(command -v atuin)\" ]] && eval \"$(atuin init zsh)\" \n"
+        state: present
+        create: yes
+        insertafter: EOF

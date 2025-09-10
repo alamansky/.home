@@ -1,0 +1,9 @@
+- name: update apt cache
+  become: yes
+  apt:
+    update_cache: yes
+- name: install apt package
+  become: yes
+  apt:
+    name: "{{ package }}"
+    state: present

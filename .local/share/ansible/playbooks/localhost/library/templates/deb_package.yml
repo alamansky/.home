@@ -1,0 +1,5 @@
+# type: deb package 
+name: # name of the executable
+url: # url from which the debian file can be downloaded
+destination: # destination directory (tmp) to store debian file for install
+file: # name of the downloaded debian file

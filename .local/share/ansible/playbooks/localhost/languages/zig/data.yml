@@ -1,0 +1,3 @@
+language: "zig"
+version: "0.13.0"
+plugin: "https://github.com/asdf-community/asdf-zig.git"

@@ -1,0 +1,16 @@
+- name: install aichat
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install binary
+      include_tasks:
+        file: ../../library/tasks/download_executable_binary.yml
+    - name: create api key env var
+      lineinfile:
+        path: $XDG_CONFIG_HOME/env/vars.sh
+        line: |
+          export GROQ_API_KEY="{{ GROQ_API_KEY }}"
+        state: present
+        create: yes
+        insertafter: EOF

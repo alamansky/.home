@@ -1,0 +1,2 @@
+name: zsh
+env_file: $HOME/.zshenv

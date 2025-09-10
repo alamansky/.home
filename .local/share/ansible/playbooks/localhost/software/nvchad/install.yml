@@ -1,0 +1,8 @@
+- name: install nvchad
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: clone repo
+      include_tasks:
+        file: ../../library/tasks/clone_git_repo.yml

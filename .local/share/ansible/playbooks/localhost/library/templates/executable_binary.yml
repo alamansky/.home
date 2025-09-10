@@ -1,0 +1,7 @@
+# type: executable binary
+name: # name of the executable file
+url: # url from which an archive of the file can be downloaded
+archive: # the name of the downloaded archive (usually a tarball)
+file: # deprecated?
+destination: # destination directory for the unpacked archive content
+path: # full path of the executable file
