@@ -16,3 +16,11 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 
 # install ansible
 sudo apt install ansible
+
+# create vault file
+read -p "Please enter password for vault file: " password
+touch ~/.vault
+echo "$password" > ~/.vault
+
+# run playbook
+ansible-playbook --vault-password-file=~/.vault ~/.local/share/ansible/playbooks/localhost/install_all_software.yml
