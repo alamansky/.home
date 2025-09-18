@@ -1,0 +1,8 @@
+- name: install libasound2t64
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install apt package
+      include_tasks:
+        file: ../../library/tasks/install_apt_package.yml

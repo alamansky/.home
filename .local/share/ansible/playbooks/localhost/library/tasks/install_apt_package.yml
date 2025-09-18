@@ -5,5 +5,5 @@
 - name: install apt package
   become: yes
   apt:
-    name: "{{ package }}"
+    name: "{{ name }}"
     state: present

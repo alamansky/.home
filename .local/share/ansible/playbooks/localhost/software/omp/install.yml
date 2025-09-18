@@ -1,13 +1,11 @@
+- import_playbook: ../../software/unzip/install.yml # dependency
 - name: install omp
   hosts: localhost
   vars_files:
     - data.yml
   vars:
-    - command: curl -s "{{ script }}" | bash -s -- -d "{{ destination }}"
+    command: curl -s "{{ script }}" | bash -s -- -d "{{ destination }}"
   tasks:
-    - name: install unzip dependency
-      include_tasks:
-        file: ../../software/unzip/install.yml
     - name: run install script
       include_tasks:
         file: ../../library/tasks/run_install_script.yml

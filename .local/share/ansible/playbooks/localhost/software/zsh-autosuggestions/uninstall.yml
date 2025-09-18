@@ -3,9 +3,10 @@
   vars_files:
     - data.yml
   tasks:
-    - name: uninstall binary
-      include_tasks:
-        file: ../../library/uninstall_binary.yml
+    - name: delete install directory
+      file:
+        path: "{{ destination }}"
+        state: absent
     - name: unsource
       lineinfile:
         path: $XDG_CONFIG_HOME/zsh/.zshrc

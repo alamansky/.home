@@ -3,7 +3,7 @@
   vars_files:
     - data.yml
   vars:
-    - command: curl -s "{{ script }}" | DOWNLOAD_TO="{{ destination }}" bash
+    command: curl -s "{{ script }}" | DOWNLOAD_TO="{{ destination }}" bash
   tasks:
     - name: run install script
       include_tasks:

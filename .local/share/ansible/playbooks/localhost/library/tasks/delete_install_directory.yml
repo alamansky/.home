@@ -1,6 +1,7 @@
 # destination - the location of the install directory
 # name - the name of the symlinked executable in the install directory
 - name: delete directory
+  become: yes
   file:
     path: "{{ destination }}"
     state: absent

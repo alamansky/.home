@@ -1,9 +1,4 @@
-# type: git repository
-repository: https://github.com/zsh-users/zsh-autosuggestions
-branch: master
-destination: $XDG_DATA_HOME/zsh-autosuggestions
-path_file: $XDG_CONFIG_HOME/env/path.sh
-# type: repo
+# type: git repo
 name: zsh-autosuggestions
 repository: https://github.com/zsh-users/zsh-autosuggestions
 branch: master

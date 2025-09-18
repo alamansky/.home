@@ -11,7 +11,7 @@
     #    state: absent
     - name: uninstall binary
       include_tasks:
-        file: ../../library/uninstall_binary.yml
+        file: ../../library/tasks/delete_install_directory.yml
     - name: delete initialization
       lineinfile:
         path: $XDG_CONFIG_HOME/zsh/.zshrc

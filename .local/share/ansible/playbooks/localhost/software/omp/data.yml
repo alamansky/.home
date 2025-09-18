@@ -2,4 +2,4 @@
 name: oh-my-posh
 script: https://ohmyposh.dev/install.sh
 destination: /opt/managed/omp
-path: /opt/managed/oh-my-posh
+path: /opt/managed/omp/oh-my-posh
