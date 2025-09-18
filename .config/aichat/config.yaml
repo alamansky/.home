@@ -1,0 +1,6 @@
+model: groq:llama-3.3-70b-versatile
+clients:
+- type: openai-compatible
+  name: groq
+  api_base: https://api.groq.com/openai/v1
+  api_key:
