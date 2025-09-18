@@ -1,0 +1,22 @@
+# shell and prompt
+
+- import_playbook: software/zsh/install.yml 
+- import_playbook: software/zsh-autosuggestions/install.yml 
+- import_playbook: software/omp/install.yml 
+- import_playbook: software/zellij/install.yml 
+
+# editor
+
+- import_playbook: software/asdf/install.yml 
+- import_playbook: software/ripgrep/install.yml 
+- import_playbook: software/neovim/install.yml 
+
+# tui
+
+- import_playbook: software/aichat/install.yml 
+- import_playbook: software/atuin/install.yml 
+- import_playbook: software/fzf/install.yml 
+
+# gui
+
+- import_playbook: software/chrome/install.yml 

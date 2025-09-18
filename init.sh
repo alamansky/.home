@@ -1,4 +1,8 @@
-# symlink XDG base directories:  
+# delete existing .cache if present
+
+rm -r ~/.cache
+
+# symlink XDG base directories
 ln -s ~/.home/{.cache,.config,.local} ~
 
 # source env files in `~/.profile` so interactive login shells can run ansible playbooks  
@@ -18,9 +22,13 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 
 # create vault file
-read -p "Please enter password for vault file: " password
+read -sp "Please enter password for vault file: " password
 touch ~/.vault
 echo "$password" > ~/.vault
+echo "\n"
 
 # run playbook
 ansible-playbook --vault-password-file=~/.vault ~/.local/share/ansible/playbooks/localhost/install_all_software.yml
+
+# change shell to zsh
+chsh -s $(which zsh) $(whoami)
