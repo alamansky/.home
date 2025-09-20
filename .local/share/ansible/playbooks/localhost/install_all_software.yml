@@ -9,7 +9,7 @@
 
 - import_playbook: software/asdf/install.yml 
 - import_playbook: software/ripgrep/install.yml 
-- import_playbook: software/neovim/install.yml 
+- import_playbook: software/nvim/install.yml 
 
 # tui
 
