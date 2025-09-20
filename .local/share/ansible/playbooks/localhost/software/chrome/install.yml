@@ -1,3 +1,4 @@
+- import_playbook: ../libasound2t64/install.yml # dependency
 - name: install chrome
   hosts: localhost
   vars_files:

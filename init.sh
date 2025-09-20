@@ -6,7 +6,7 @@ rm -r ~/.cache
 ln -s ~/.home/{.cache,.config,.local} ~
 
 # source env files in `~/.profile` so interactive login shells can run ansible playbooks  
-printf "source ~/.config/env/vars.sh\nsource ~/.config/env/path.sh" >> ~/.profile
+printf "source ~/.config/env/vars.sh\nsource ~/.config/env/path.sh\nsource ~/.config/env/alias.sh" >> ~/.profile
 source ~/.profile
 
 # get latest package info from all sources
