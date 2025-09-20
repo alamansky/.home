@@ -1,5 +1,4 @@
-/cccc
-
+# delete existing cache
 rm -r ~/.cache
 
 # symlink XDG base directories

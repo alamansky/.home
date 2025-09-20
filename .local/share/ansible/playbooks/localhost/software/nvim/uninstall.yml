@@ -6,7 +6,7 @@
   tasks:
     - name: uninstall binary
       include_tasks:
-        file: ../../library/uninstall_binary.yml
+        file: ../../library/tasks/delete_install_directory.yml
     - name: delete config
       file:
         path: $XDG_CONFIG_HOME/nvim

@@ -5,7 +5,7 @@
   tasks:
     - name: uninstall binary
       include_tasks:
-        file: ../../library/uninstall_binary.yml
+        file: ../../library/tasks/delete_install_directory.yml
     - name: delete env vars
       lineinfile:
         path: $XDG_CONFIG_HOME/env/vars.sh

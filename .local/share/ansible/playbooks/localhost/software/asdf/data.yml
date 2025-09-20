@@ -1,4 +1,4 @@
-# type: file download
+# type: executable binary
 name: asdf
 url: https://github.com/asdf-vm/asdf/releases/download/v0.16.2/asdf-v0.16.2-linux-amd64.tar.gz
 archive: asdf-v0.16.2-linux-amd64.tar.gz

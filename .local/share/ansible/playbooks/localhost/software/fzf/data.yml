@@ -1,4 +1,4 @@
-# type: file download
+# type: executable binary
 name: fzf
 url: https://github.com/junegunn/fzf/releases/download/v0.58.0/fzf-0.58.0-linux_amd64.tar.gz
 archive: fzf-0.58.0-linux_amd64.tar.gz

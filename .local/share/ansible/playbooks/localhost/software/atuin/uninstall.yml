@@ -5,7 +5,7 @@
   tasks:
     - name: uninstall binary
       include_tasks:
-        file: ../../library/uninstall_binary.yml
+        file: ../../library/tasks/delete_install_directory.yml
     - name: delete history
       lineinfile:
         path: $XDG_DATA_HOME/atuin

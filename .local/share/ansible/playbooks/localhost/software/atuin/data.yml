@@ -1,4 +1,4 @@
-# type: file download
+# type: executable binary
 name: atuin
 url: https://github.com/atuinsh/atuin/releases/download/v18.3.0/atuin-x86_64-unknown-linux-gnu.tar.gz
 archive: atuin-x86_64-unknown-linux-gnu.tar.gz
