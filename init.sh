@@ -27,7 +27,8 @@ printf "$password" > ~/.vault
 printf "\n"
 
 # run playbook
-ansible-playbook --vault-password-file=~/.vault ~/.local/share/ansible/playbooks/localhost/install_all_software.yml
+ansible-playbook --ask-become-pass --vault-password-file=~/.vault ~/.local/share/ansible/playbooks/localhost/install_all_software.yml
 
 # change shell to zsh
 chsh -s $(which zsh) $(whoami)
+zsh
