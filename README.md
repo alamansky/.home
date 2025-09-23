@@ -51,7 +51,7 @@ chmod 600 ~/.ssh/$key_name
 
 ```
 touch ~/.ssh/config
-printf "Host github.com\n   AddKeysToAgent yes\n    User git\n  IdentityFile ~/.ssh/$key_name" >> ~/.ssh/config
+printf "Host github.com\n   AddKeysToAgent yes\n   User git\n   IdentityFile ~/.ssh/$key_name" >> ~/.ssh/config
 ```
 
 ### Setting up Home Directory

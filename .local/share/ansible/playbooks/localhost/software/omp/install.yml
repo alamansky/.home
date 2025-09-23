@@ -15,9 +15,8 @@
         line: |
           # set theme
           # https://ohmyposh.dev/docs/installation/customize
-          export OMP_THEME="agnoster.minimal"
           [[ -x "$(command -v oh-my-posh)" ]] && \
-            eval "$(oh-my-posh init zsh --config ${XDG_CACHE_HOME}/oh-my-posh/themes/${OMP_THEME}.omp.json)"
+            eval "$(oh-my-posh init zsh --config agnoster.minimal"
         state: present
         create: yes
         insertafter: EOF

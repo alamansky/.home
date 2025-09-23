@@ -17,3 +17,5 @@ _comp_options+=(globdots)
 
 # make zsh compdump XDG compliant
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
+# machine-generated appends (e.g. from ansible):
