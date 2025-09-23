@@ -71,7 +71,7 @@ ln -s ~/.home/{.cache,.config,.local} ~
 3. Source env files in `~/.profile` so interactive login shells can run ansible playbooks  
 
 ```
-printf "source ~/.config/env/vars.sh\nsource ~/.config/env/path.sh\nsource ~/.config/env/alias.sh" >> ~/.profile
+printf ". ~/.config/env/vars.sh\n. ~/.config/env/path.sh\n. ~/.config/env/alias.sh" >> ~/.profile
 source ~/.profile
 ```
 

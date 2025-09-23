@@ -30,3 +30,5 @@
     src: "{{ path }}"
     dest: "$HOME/.local/bin/{{ name }}"
     state: link
+- name: source profile
+  shell: . ~/.profile
