@@ -1,0 +1,9 @@
+tasks:
+  - name: uninstall maven
+    hosts: localhost
+    vars_files:
+      - data.yml
+    tasks:
+      - name: uninstall language
+        include_tasks:
+          file: ../../library/tasks/uninstall_language.yml
