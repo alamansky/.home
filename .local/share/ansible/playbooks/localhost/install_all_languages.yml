@@ -1,0 +1,3 @@
+- import_playbook: languages/java/install.yml
+- import_playbook: languages/maven/install.yml
+- import_playbook: languages/nodejs/install.yml
