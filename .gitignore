@@ -3,3 +3,12 @@
 
 .local/bin/*
 .local/bin/!.*
+.local/share/
+.local/state/
+
+.config/JetBrains/
+.config/atuin/
+.config/configstore/
+.config/google-chrome/
+.config/zellij
+.config/zsh/.zcompdump
