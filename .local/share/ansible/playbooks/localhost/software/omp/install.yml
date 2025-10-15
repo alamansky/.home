@@ -20,3 +20,7 @@
         state: present
         create: yes
         insertafter: EOF
+    - name: source profile
+      shell: . ~/.profile
+    - name: install nerd font
+      shell: oh-my-posh font install meslo
