@@ -2,6 +2,7 @@
 
 :qa - quit all open buffers
 :set filetype? - check file type of open buffer
+:f - display file path relative to root project directory
 
 q<register><macro>q - record macro
 @<register> - replay macro
