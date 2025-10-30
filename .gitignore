@@ -3,8 +3,17 @@
 
 .local/bin/*
 .local/bin/!.*
-.local/share/
 .local/state/
+
+.local/share/JetBrains/
+.local/share/asdf/
+.local/share/atuin/
+.local/share/fonts/
+.local/share/mimeapps.list
+.local/share/nvim/
+.local/share/pnpm/
+.local/share/yarn/
+.local/share/zsh-autosuggestions/
 
 .config/JetBrains/
 .config/atuin/

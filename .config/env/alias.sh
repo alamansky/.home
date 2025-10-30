@@ -12,7 +12,7 @@ alias zrc="$EDITOR ~/.home/.config/zsh/.zshrc"
 # functions
 
 # set interactive shell to zsh
-function zshell {
+function zshell() {
   chsh -s $(which zsh) $(whoami)
 }
 
@@ -59,6 +59,11 @@ function git-clone-sparse() {
 # $1 - port to which the server should listen
 function serve() {
   python3 -m http.server $1
+}
+
+# search bookmarks
+function bm() {
+  qq '.roots.other.children[] | .url' $BOOKMARKS | fzf | xargs -o $BROWSER
 }
 
 # machine-generated appends

@@ -27,6 +27,10 @@ q<register><macro>q - record macro
 :Pencil - enter prose writing mode
 <leader>xx - toggle diagnostics panel
 
+### nvim-dap
+
+<leader>c - start debug session
+
 ## Appendix
 
 Key Guide:
