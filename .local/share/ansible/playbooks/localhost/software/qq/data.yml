@@ -1,0 +1,7 @@
+# type: executable binary
+name: qq
+url: https://github.com/JFryy/qq/releases/download/v0.3.1/qq-v0.3.1-linux-amd64.tar.gz
+archive: qq-v0.3.1-linux-amd64.tar.gz
+file: /qq-v0.3.1-linux-amd64
+destination: /opt/managed/qq/0.3.1
+path: /opt/managed/qq/0.3.1/qq
