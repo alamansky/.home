@@ -1,17 +1,33 @@
-# directory shortcuts
-alias ans="cd ~/.home/.local/share/ansible/playbooks/localhost && $EDITOR"
-alias nvc="cd ~/.home/.config/nvim && $EDITOR"
-alias cnv="cd ~/.home/.config/env && $EDITOR"
+# open a file or directory in neovim
+function o() {
+  local target;
+  case "$1" in
+    "sh"|"shell"|"env")
+      target=$XDG_CONFIG_HOME/env
+      ;;
+    "zsh"|"z")
+      target=$XDG_CONFIG_HOME/zsh/.zshrc
+      ;;
+    "nvim"|"neovim")
+      target=$XDG_CONFIG_HOME/nvim
+      ;;
+    "nvchad")
+      target=$XDG_DATA_HOME/nvim
+      ;;
+    "ans"|"ansible")
+      target=$XDG_DATA_HOME/ansible/playbooks/localhost
+      ;;
+    "bm"|"bookmarks")
+      target=$BOOKMARKS
+      ;;
+    *)
+      echo "Not a recognized path alias: $1"
+      ;;
+  esac
+  [ -n "$target" ] && $EDITOR $target
+}
 
-# file shortcuts
-alias zrc="$EDITOR ~/.home/.config/zsh/.zshrc"
-
-# to specify config explicitly:
-# alias nvim="nvim -u ${XDG_CONFIG_HOME}/nvim/init.lua"
-
-# functions
-
-# create gzipped tarbal from directory
+# create gzipped tarball from directory
 # $1 - name of tarball
 # $2 - directory to archive
 function tb() {
@@ -27,8 +43,9 @@ function up() {
   rsync -avz $1 $2@$3:$4
 }
 
+# copy ~/docs to a remote machine specified by env vars
 function backup() {
-cp ~/.config/google-chrome/Default/Bookmarks ~/docs/bookmarks/Bookmarks
+cp $XDG_CONFIG_HOME/google-chrome/Default/Bookmarks ~/docs/bookmarks/Bookmarks
 rsync -avz ~/docs $D1_USER@$D1_IP:/home/$D1_USER
 }
 
