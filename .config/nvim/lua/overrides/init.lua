@@ -12,3 +12,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 -- clipboard integration for clipipe
 vim.opt.clipboard = "unnamedplus"
+
+-- open nvim in directory given as arg
+-- https://github.com/NvChad/NvChad/issues/316
+-- (replaced BufEnter with VimEnter to avoid changing telescope behavior)
+vim.cmd([[ autocmd VimEnter * if &buftype != "terminal" | lcd %:p:h | endif ]])

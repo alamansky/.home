@@ -15,9 +15,11 @@
 .local/share/yarn/
 .local/share/zsh-autosuggestions/
 
+.config/env/secrets.sh
 .config/JetBrains/
 .config/atuin/
 .config/configstore/
 .config/google-chrome/
+.config/chromium/
 .config/zellij
 .config/zsh/.zcompdump
