@@ -1,0 +1,11 @@
+- name: install docker
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install deb packages
+      include_tasks:
+        file: ../../library/tasks/install_deb_packages.yml
+      loop: "{{ packages }}"
+      loop_control:
+        loop_var: package

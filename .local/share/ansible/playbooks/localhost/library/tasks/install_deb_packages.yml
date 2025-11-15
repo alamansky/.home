@@ -1,0 +1,14 @@
+- name: download file
+  get_url:
+    url: "{{ package.url }}"
+    dest: "{{ destination }}"
+    timeout: 30
+- name: install package from .deb file
+  become: true
+  apt:
+    deb: "{{ destination }}/{{ package.file }}"
+    state: present
+- name: delete file
+  file:
+    path: "{{ destination }}/{{ package.file }}"
+    state: absent

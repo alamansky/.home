@@ -1,0 +1,14 @@
+# type: deb packages 
+names:
+  - containerd.io
+  - docker-ce-cli
+  - docker-ce
+  - docker-buildx-plugin
+  - docker-compose-plugin
+packages:
+  - {url: 'https://download.docker.com/linux/ubuntu/dists/noble/pool/stable/amd64/containerd.io_1.7.28-1~ubuntu.24.04~noble_amd64.deb', file: containerd.io_1.7.28-1~ubuntu.24.04~noble_amd64.deb}
+  - {url: 'https://download.docker.com/linux/ubuntu/dists/noble/pool/stable/amd64/docker-ce-cli_28.5.1-1~ubuntu.24.04~noble_amd64.deb', file: docker-ce-cli_28.5.1-1~ubuntu.24.04~noble_amd64.deb}
+  - {url: 'https://download.docker.com/linux/ubuntu/dists/noble/pool/stable/amd64/docker-ce_28.5.1-1~ubuntu.24.04~noble_amd64.deb', file: docker-ce_28.5.1-1~ubuntu.24.04~noble_amd64.deb}
+  - {url: 'https://download.docker.com/linux/ubuntu/dists/noble/pool/stable/amd64/docker-buildx-plugin_0.29.1-1~ubuntu.24.04~noble_amd64.deb', file: docker-buildx-plugin_0.29.1-1~ubuntu.24.04~noble_amd64.deb}
+  - {url: 'https://download.docker.com/linux/ubuntu/dists/noble/pool/stable/amd64/docker-compose-plugin_2.40.3-1~ubuntu.24.04~noble_amd64.deb', file: docker-compose-plugin_2.40.3-1~ubuntu.24.04~noble_amd64.deb}
+destination: /tmp
