@@ -1,0 +1,7 @@
+# type: executable binary
+name: yt-dlp
+url: https://github.com/yt-dlp/yt-dlp/releases/download/2025.10.22/yt-dlp_linux.zip
+archive: yt-dlp_linux.zip
+file: yt-dlp_linux
+destination: /opt/managed/yt-dlp/2025.10.22
+path: /opt/managed/yt-dlp/2025.10.22/yt-dlp_linux

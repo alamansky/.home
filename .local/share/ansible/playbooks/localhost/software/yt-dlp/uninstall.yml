@@ -1,0 +1,8 @@
+- name: uninstall yt-dlp
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: uninstall binary
+      include_tasks:
+        file: ../../library/tasks/delete_install_directory.yml

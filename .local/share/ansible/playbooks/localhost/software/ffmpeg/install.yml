@@ -1,0 +1,9 @@
+- name: install ffmpeg
+  hosts: localhost
+  become: true
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install apt package
+      include_tasks:
+        file: ../../library/tasks/install_apt_package.yml
