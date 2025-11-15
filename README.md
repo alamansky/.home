@@ -19,9 +19,10 @@ Configuration files are located in the `~/.config` directory and are not general
 
 The `~/.config/env` directory contains shell files for configuring the environment itself:
 
-* vars.sh - export statements for environment variables, e.g. `XDG_DATA_HOME="$HOME/.local/share"`
+* secrets.sh - export statements for sensitive environment variables
+* vars.sh - export statements for regular environment variables
 * path.sh - additions to the $PATH variable, e.g. `PATH="$HOME/.local/bin:$PATH"`
-* alias.sh - shell aliases
+* functions.sh - shell functions
 
 These files should be sourced in `~/.profile` so they can be made available to any login shell.  
 
@@ -71,7 +72,7 @@ ln -s ~/.home/{.cache,.config,.local} ~
 3. Source env files in `~/.profile` so interactive login shells can run ansible playbooks  
 
 ```
-printf ". ~/.config/env/vars.sh\n. ~/.config/env/path.sh\n. ~/.config/env/alias.sh" >> ~/.profile
+printf ". ~/.config/env/secrets.sh\n. ~/.config/env/vars.sh\n. ~/.config/env/path.sh\n. ~/.config/env/functions.sh" >> ~/.profile
 source ~/.profile
 ```
 

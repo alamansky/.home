@@ -11,6 +11,27 @@ alias zrc="$EDITOR ~/.home/.config/zsh/.zshrc"
 
 # functions
 
+# create gzipped tarbal from directory
+# $1 - name of tarball
+# $2 - directory to archive
+function tb() {
+  tar -czf $1.tar.gz $2
+}
+
+# move file to remote machine
+# $1 - path to local file to copy
+# $2 - username on remote machine
+# $3 - remote machine IP address
+# $4 - target path on remote machine
+function up() {
+  rsync -avz $1 $2@$3:$4
+}
+
+function backup() {
+cp ~/.config/google-chrome/Default/Bookmarks ~/docs/bookmarks/Bookmarks
+rsync -avz ~/docs $D1_USER@$D1_IP:/home/$D1_USER
+}
+
 # set interactive shell to zsh
 function zshell() {
   chsh -s $(which zsh) $(whoami)
@@ -64,6 +85,11 @@ function serve() {
 # search bookmarks
 function bm() {
   qq '.roots.other.children[] | .url' $BOOKMARKS | fzf | xargs -o $BROWSER
+}
+
+# look up function definition
+function func() {
+  cat $XDG_CONFIG_HOME/env/functions.sh | fzf | sed 's/[^^]/[&]/g; s/\^/\\^/g' | xargs -I {} awk -v RS= -v ORS='\n\n' "/{}/" $XDG_CONFIG_HOME/env/functions.sh
 }
 
 # machine-generated appends
