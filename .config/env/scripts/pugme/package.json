@@ -1,0 +1,10 @@
+{
+  "name": "pugme",
+  "version": "1.0.0",
+  "description": "json + pug = html",
+  "main": "pugme.js",
+  "license": "MIT",
+  "dependencies": {
+    "pug": "^3.0.3"
+  }
+}
