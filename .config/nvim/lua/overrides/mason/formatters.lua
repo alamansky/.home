@@ -9,4 +9,5 @@ return {
 	typescript = { "prettier" },
 	javascriptreact = { "prettier" },
 	typescriptreact = { "prettier" },
+	json = { "prettier" },
 }

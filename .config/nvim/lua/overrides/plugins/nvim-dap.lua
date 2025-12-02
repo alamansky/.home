@@ -27,12 +27,6 @@ return {
 			end,
 		},
 		{
-			"n", -- omit leader for convenience
-			function()
-				require("dap").step_over()
-			end,
-		},
-		{
 			"<leader>i",
 			function()
 				require("dap").step_into()
