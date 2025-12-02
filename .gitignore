@@ -20,6 +20,7 @@
 .config/atuin/
 .config/configstore/
 .config/google-chrome/
+.config/pulse/
 .config/chromium/
 .config/zellij
 .config/zsh/.zcompdump
