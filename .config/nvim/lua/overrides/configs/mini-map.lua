@@ -6,6 +6,7 @@ mini_map.setup({
 		mini_map.gen_integration.builtin_search(),
 		mini_map.gen_integration.diff(),
 		mini_map.gen_integration.diagnostic(),
+		mini_map.gen_integration.gitsigns(),
 	},
 
 	-- Symbols used to display data

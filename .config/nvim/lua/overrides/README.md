@@ -116,6 +116,37 @@ gT - to go previous tab
 
 <leader>c - start debug session
 
+### mini-map
+
+<leader>mt - toggle map
+<leader>ms - toggle map side (left vs right)
+<leader>mr - refresh map
+<leader>mf - toggle map focus
+
+### git-signs
+
+<leader>hd - git diff current file
+<leader>tw - toggle word diff
+<leader>tb  toggle current line blame
+<leader>hb - blame current line (full)
+
+`<leader>[c` - go to previous hunk
+`<leader>]c` - go to next hunk
+
+<leader>hp - preview hunk
+<leader>hi - preview hunk (inline)
+
+<leader>hs - stage hunk
+<leader>hr - unstage/reset hunk
+
+<leader>hS - stage buffer (`git add {filename}`)
+<leader>hR - unstage/reset buffer (`git restore --staged {filename}`)
+
+
+ih - "in hunk" text object
+<C-w>q - exit diff window
+:wincmd p | q - exit diff window
+
 ## Appendix
 
 Key Guide:
