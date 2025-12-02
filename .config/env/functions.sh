@@ -34,19 +34,33 @@ function tb() {
   tar -czf $1.tar.gz $2
 }
 
-# move file to remote machine
-# $1 - path to local file to copy
-# $2 - username on remote machine
+# move file from local to remote
+# $1 - local path
+# $2 - remote machine user
 # $3 - remote machine IP address
-# $4 - target path on remote machine
+# $4 - remote path
 function up() {
   rsync -avz $1 $2@$3:$4
 }
 
+# move file from remote to local
+# $1 - remote machine user
+# $2 - remote machine IP address
+# $3 - remote path
+# $4 - local path
+function down() {
+  rsync -avz $1@$2:$3 $4
+}
+
 # copy ~/docs to a remote machine specified by env vars
 function backup() {
-cp $XDG_CONFIG_HOME/google-chrome/Default/Bookmarks ~/docs/bookmarks/Bookmarks
-rsync -avz ~/docs $D1_USER@$D1_IP:/home/$D1_USER
+  cp $XDG_CONFIG_HOME/google-chrome/Default/Bookmarks ~/docs/bookmarks/Bookmarks
+  rsync -avz ~/docs $D1_USER@$D1_IP:/home/$D1_USER
+}
+
+# copy ~/docs from a remote machine specified by env vars
+function backdown() {
+  rsync -avz --backup --backup-dir=$HOME/backups/docs $D1_USER@$D1_IP:/home/$D1_USER/docs/ ~/docs
 }
 
 # set interactive shell to zsh
@@ -107,6 +121,25 @@ function bm() {
 # look up function definition
 function func() {
   cat $XDG_CONFIG_HOME/env/functions.sh | fzf | sed 's/[^^]/[&]/g; s/\^/\\^/g' | xargs -I {} awk -v RS= -v ORS='\n\n' "/{}/" $XDG_CONFIG_HOME/env/functions.sh
+}
+
+# merge JSON data into pug template and convert to HTML
+# $1 - path to directory with input JSON data
+# $2 - path to pug template file
+# $3 - path to output directory for html files
+function pugme() {
+  node $XDG_CONFIG_HOME/env/scripts/pugme/pugme.js $1 $2 $3
+}
+
+# change a local commit message
+# $1 - new message for commit
+function amend_commit() {
+  git commit --amend -m "${1}"
+}
+
+# call powershell script to restore network connectivity in WSL after connecting to a VPN
+function vpn() {
+  powershell.exe -c wsl-vpn
 }
 
 # machine-generated appends
