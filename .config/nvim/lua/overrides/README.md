@@ -1,5 +1,5 @@
 ## Standard neovim mappings:
-
+<!-- -->
 :qa - quit all open buffers
 :set filetype? - check file type of open buffer
 :f - display file path relative to root project directory
@@ -7,7 +7,7 @@
 . - repeat last command
 
 ### Editing
-
+<!-- -->
 s - delete char and insert
 S - delete line and insert
 C - delete until end of line and insert
@@ -15,7 +15,7 @@ u - undo changes
 <C-r> - redo changes
 
 ### Text Objects
-
+<!-- -->
 p - paragraph
 w - word
 s - sentence
@@ -24,7 +24,7 @@ s - sentence
 t - tag
 
 ### Paging
-
+<!-- -->
 <C-b> - scroll up one full page
 <C-f> - scroll down one full page
 <C-u> - scroll up half a page
@@ -36,7 +36,7 @@ zt - scroll current line to top of page
 zb - scroll current line to bottom of page
 
 ### Motions
-
+<!-- -->
 H - first line in view
 M - middle line line view
 L - last line of view
@@ -54,14 +54,14 @@ T{c} forward to after character
 [M - previous method end
 
 ### Navigation
-
+<!-- -->
 gf - go to file under cursor
 gd - go to method definition
 <C-O> - go back through jump history
 <C-I> - go forward through jump history
 
 ### Folds
-
+<!-- -->
 za - toggle fold
 zm - increase fold depth by 1
 zr - decrease fold depth by 1
@@ -70,17 +70,17 @@ zR - open all (decrease fold depth to max)
 za - create fold
 
 ### Macros
-
+<!-- -->
 q{register}{macro}q - record macro (any key for register, `a` is fine)
 @{register} - replay macro
 
 ## Default nvchad mappings:
-
+<!-- -->
 <leader>rn - toggle relative line numbers
 <leader>ra - rename symbol
 
 ### Nvim-Tree
-
+<!-- -->
 r - rename file
 d - delete file
 y - copy file name
@@ -90,7 +90,7 @@ p - paste file
 
 
 ### Telescope
-
+<!-- -->
 <leader>ff - find source files (excluding node_modules etc)
 <leader>fa - find all files
 <leader>fw - find in files
@@ -101,54 +101,48 @@ p - paste file
 <M-q> - Send selected items to quickfix list
 
 ### Tabufline
-
+<!-- -->
 gt - go to tab
 gT - to go previous tab
 1gt - go to first tab, etc
 <C-w-T> - Open current buffer in new tab (tabs close when no open buffers)
 
 ## Override mappings:
-
+<!-- -->
 :Pencil - enter prose writing mode
 <leader>xx - toggle diagnostics panel
 
 ### nvim-dap
-
+<!-- -->
 <leader>c - start debug session
 
 ### mini-map
-
+<!-- -->
 <leader>mt - toggle map
 <leader>ms - toggle map side (left vs right)
 <leader>mr - refresh map
 <leader>mf - toggle map focus
 
 ### git-signs
-
+<!-- -->
 <leader>hd - git diff current file
 <leader>tw - toggle word diff
 <leader>tb  toggle current line blame
 <leader>hb - blame current line (full)
-
 `<leader>[c` - go to previous hunk
 `<leader>]c` - go to next hunk
-
 <leader>hp - preview hunk
 <leader>hi - preview hunk (inline)
-
 <leader>hs - stage hunk
 <leader>hr - unstage/reset hunk
-
 <leader>hS - stage buffer (`git add {filename}`)
 <leader>hR - unstage/reset buffer (`git restore --staged {filename}`)
-
-
 ih - "in hunk" text object
 <C-w>q - exit diff window
 :wincmd p | q - exit diff window
 
 ## Appendix
-
+<!-- -->
 Key Guide:
 
 CR - enter

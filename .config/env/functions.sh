@@ -123,6 +123,14 @@ function func() {
   cat $XDG_CONFIG_HOME/env/functions.sh | fzf | sed 's/[^^]/[&]/g; s/\^/\\^/g' | xargs -I {} awk -v RS= -v ORS='\n\n' "/{}/" $XDG_CONFIG_HOME/env/functions.sh
 }
 
+function nkb() {
+  cat $XDG_CONFIG_HOME/nvim/lua/overrides/README.md | \
+  fzf | \
+  sed 's/[^^]/[&]/g; s/\^/\\^/g' | \
+  xargs -I {} awk -v RS= -v ORS='\n\n' "/{}/" $XDG_CONFIG_HOME/nvim/lua/overrides/README.md
+}
+
+
 # merge JSON data into pug template and convert to HTML
 # $1 - path to directory with input JSON data
 # $2 - path to pug template file
