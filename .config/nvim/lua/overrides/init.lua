@@ -41,3 +41,12 @@ end, { noremap = true, expr = true })
 vim.keymap.set({ "n", "x" }, "k", function()
 	return vim.v.count > 1 and "m'" .. vim.v.count .. "k" or "k"
 end, { noremap = true, expr = true })
+
+-- shortcuts to re-order buffer list
+vim.keymap.set({ "n", "x" }, "th", function()
+	return require("nvchad.tabufline").move_buf(-1)
+end, { noremap = true, expr = true })
+
+vim.keymap.set({ "n", "x" }, "tl", function()
+	return require("nvchad.tabufline").move_buf(1)
+end, { noremap = true, expr = true })

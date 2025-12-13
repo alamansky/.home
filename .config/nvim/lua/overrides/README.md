@@ -105,6 +105,8 @@ p - paste file
 gt - go to tab
 gT - to go previous tab
 1gt - go to first tab, etc
+th - move buffer to the left in buffer list
+tl - move buffer to the right in buffer list
 <C-w-T> - Open current buffer in new tab (tabs close when no open buffers)
 
 ## Override mappings:

@@ -55,12 +55,12 @@ function down() {
 # copy ~/docs to a remote machine specified by env vars
 function backup() {
   cp $XDG_CONFIG_HOME/google-chrome/Default/Bookmarks ~/docs/bookmarks/Bookmarks
-  rsync -avz ~/docs $D1_USER@$D1_IP:/home/$D1_USER
+  rsync -avz --delete --backup-dir=/home/$D1_USER/backups/docs  ~/docs $D1_USER@$D1_IP:/home/$D1_USER
 }
 
 # copy ~/docs from a remote machine specified by env vars
 function backdown() {
-  rsync -avz --backup --backup-dir=$HOME/backups/docs $D1_USER@$D1_IP:/home/$D1_USER/docs/ ~/docs
+  rsync -avz --delete --backup-dir=$HOME/backups/docs $D1_USER@$D1_IP:/home/$D1_USER/docs/ ~/docs
 }
 
 # set interactive shell to zsh
