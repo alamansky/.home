@@ -1,0 +1,15 @@
+- name: install zsh-autosuggestions
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: clone repo
+      include_tasks:
+        file: ../../library/tasks/clone_git_repo.yml
+    - name: symlink
+      file:
+        src: "{{ path }}"
+        dest: "$HOME/.local/bin/{{ name }}"
+        state: link
+    - name: source profile
+      shell: . ~/.profile

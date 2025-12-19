@@ -1,0 +1,6 @@
+# type: git repo
+name: forgit
+repository: https://github.com/wfxr/forgit
+branch: main
+destination: $XDG_DATA_HOME/forgit
+path: $XDG_DATA_HOME/forgit/bin/git-forgit

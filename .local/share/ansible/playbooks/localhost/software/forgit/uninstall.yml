@@ -1,0 +1,13 @@
+- name: uninstall zsh-autosuggestions
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: delete install directory
+      file:
+        path: "{{ destination }}"
+        state: absent
+    - name: delete symlinks
+      file:
+        path: "$HOME/.local/bin/{{ name }}"
+        state: absent
