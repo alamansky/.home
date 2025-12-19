@@ -1,3 +1,6 @@
+-- always write newline to end of file
+vim.opt.fixeol = true
+
 -- use absolute number for current line and relative line numbers for above/below
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -43,10 +46,54 @@ vim.keymap.set({ "n", "x" }, "k", function()
 end, { noremap = true, expr = true })
 
 -- shortcuts to re-order buffer list
+
+-- move buffer left
 vim.keymap.set({ "n", "x" }, "th", function()
 	return require("nvchad.tabufline").move_buf(-1)
 end, { noremap = true, expr = true })
 
+-- move buffer right
 vim.keymap.set({ "n", "x" }, "tl", function()
 	return require("nvchad.tabufline").move_buf(1)
 end, { noremap = true, expr = true })
+
+-- move buffer to first
+vim.keymap.set({ "n", "x" }, "tt", function()
+	local bufs = vim.t.bufs
+	for i, bufnr in ipairs(bufs) do
+		if bufnr == vim.api.nvim_win_get_buf(0) then
+			local tmp = bufnr
+			table.remove(bufs, i)
+			table.insert(bufs, 1, tmp)
+			break
+		end
+	end
+	vim.t.bufs = bufs
+	return vim.cmd("redrawtabline")
+end, { noremap = true, expr = true })
+
+-- telescope shortcuts (TODO - move into seperate config file)
+
+-- pick from open buffers
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fb",
+	':lua require("telescope.builtin").buffers()<CR>',
+	{ noremap = true, silent = true }
+)
+
+-- pick from treesitter
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>ft",
+	':lua require("telescope.builtin").treesitter()<CR>',
+	{ noremap = true, silent = true }
+)
+
+-- pick from modified repo files
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fg",
+	':lua require("telescope.builtin").git_status()<CR>',
+	{ noremap = true, silent = true }
+)
