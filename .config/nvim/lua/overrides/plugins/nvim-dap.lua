@@ -38,6 +38,18 @@ return {
 				require("dap").step_out()
 			end,
 		},
+		{
+			"<leader>dt",
+			function()
+				require("dapui").toggle()
+			end,
+		},
+		{
+			"<leader>de",
+			function()
+				require("dapui").eval()
+			end,
+		},
 	},
 	config = function()
 		require("overrides.configs.nvim-dap")

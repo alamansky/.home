@@ -57,4 +57,28 @@ vim.lsp.config("jdtls", {
 		"-data",
 		workspace_dir,
 	},
+	-- https://github.com/mfussenegger/nvim-jdtls?tab=readme-ov-file#java-xy-language-features-are-not-available
+	settings = {
+		java = {
+			configuration = {
+				-- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+				-- And search for `interface RuntimeOption`
+				-- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
+				runtimes = {
+					{
+						name = "JavaSE-11",
+						path = vim.env.HOME .. "/.local/share/asdf/installs/java/zulu-11.80.21",
+					},
+					{
+						name = "JavaSE-17",
+						path = vim.env.HOME .. "/.local/share/asdf/installs/java/zulu-17.58.21",
+					},
+					{
+						name = "JavaSE-21",
+						path = vim.env.HOME .. "/.local/share/asdf/installs/java/zulu-21.46.19",
+					},
+				},
+			},
+		},
+	},
 })

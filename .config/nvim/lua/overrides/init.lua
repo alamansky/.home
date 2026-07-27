@@ -14,12 +14,17 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	callback = function()
 		vim.opt_local.number = true
 		vim.opt_local.relativenumber = true
+		-- do not open other buffers in a terminal window
+		vim.opt_local.winfixbuf = true
 	end,
 	group = vim.api.nvim_create_augroup("TerminalRelativeNumbers", { clear = true }),
 })
 
 -- clipboard integration for clipipe
 vim.opt.clipboard = "unnamedplus"
+
+-- read live file changes from disk
+vim.opt.autoread = true
 
 -- open nvim in directory given as arg
 -- https://github.com/NvChad/NvChad/issues/316
@@ -30,9 +35,7 @@ vim.cmd([[ autocmd VimEnter * if &buftype != "terminal" | lcd %:p:h | endif ]])
 vim.api.nvim_create_autocmd("VimEnter", {
 	pattern = { "*" },
 	callback = function()
-		--if #vim.api.nvim_list_args() == 0 then -- No file specified
 		require("nvim-tree.api").tree.open()
-		--end
 	end,
 })
 
@@ -44,8 +47,6 @@ end, { noremap = true, expr = true })
 vim.keymap.set({ "n", "x" }, "k", function()
 	return vim.v.count > 1 and "m'" .. vim.v.count .. "k" or "k"
 end, { noremap = true, expr = true })
-
--- shortcuts to re-order buffer list
 
 -- move buffer left
 vim.keymap.set({ "n", "x" }, "th", function()
@@ -106,10 +107,30 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 
+-- pick from quickfix list
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fq",
+	':lua require("telescope.builtin").quickfix()<CR>',
+	{ noremap = true, silent = true }
+)
+-- pick from jumplist
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fj",
+	':lua require("telescope.builtin").jumplist()<CR>',
+	{ noremap = true, silent = true }
+)
 vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dap').repl.open()<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>df", '<cmd>lua require("jdtls").test_class()<CR>')
 vim.keymap.set("n", "<leader>dn", '<cmd>lua require("jdtls").test_nearest_method()<CR>')
+
+vim.keymap.set(
+	"n",
+	"<leader>ht",
+	"<cmd>Gitsigns toggle_linehl<cr><cmd>Gitsigns toggle_deleted<cr><cmd>Gitsigns toggle_word_diff<cr>"
+)
 
 -- https://github.com/bcampolo/nvim-starter-kit/blob/main/.config/nvim/lua/core/keymaps.lua
 local keymap = vim.keymap
@@ -129,3 +150,24 @@ keymap.set("n", "<leader>gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 keymap.set("n", "<leader>gn", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 keymap.set("n", "<leader>tr", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
 --keymap.set('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>')
+
+-- window resizing
+vim.api.nvim_create_user_command("HResize", function(opt)
+	local percentage = tonumber(opt.args)
+	if percentage then
+		vim.cmd("vertical resize " .. tostring(math.floor(vim.opt.columns:get() * (percentage / 100))))
+	else
+		print("Invalid percentage")
+	end
+end, { nargs = 1 })
+keymap.set("n", "<leader>rh", ":HResize ")
+
+vim.api.nvim_create_user_command("VResize", function(opt)
+	local percentage = tonumber(opt.args)
+	if percentage then
+		vim.cmd("horizontal resize " .. tostring(math.floor(vim.opt.lines:get() * (percentage / 100))))
+	else
+		print("Invalid percentage")
+	end
+end, { nargs = 1 })
+keymap.set("n", "<leader>rv", ":VResize ")

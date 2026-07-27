@@ -39,11 +39,18 @@ t - tag
 <C-f> - scroll down one full page
 <C-u> - scroll up half a page
 <C-d> - scroll down half a page
+0gg - go to 0th (nth) line number
 gg - scroll to first line
 G - scroll to last line
 zz - scroll current line to center
 zt - scroll current line to top of page
 zb - scroll current line to bottom of page
+```
+
+### Windows
+```
+<C-w> - move current window (e.g. `<C-w> L` to far right)
+<C-s> - new window split
 ```
 
 ### Motions
@@ -68,9 +75,19 @@ T{c} forward to after character
 ### Navigation
 ```
 gf - go to file under cursor
+gx - go to link under cursor
 gd - go to method definition
 <C-O> - go back through jump history
 <C-I> - go forward through jump history
+```
+
+### Marks
+```
+:marks - list marks
+` - list marks
+m{c} - set mark {c}
+`{c} - go to mark {c}
+`. - go to last change
 ```
 
 ### Folds
@@ -87,6 +104,13 @@ za - create fold
 ```
 q{register}{macro}q - record macro (any key for register, `a` is fine)
 @{register} - replay macro
+```
+
+### Registers
+```
+" - view all registers
+"0 - reference default yank register 0, e.g. "0p to paste the last yanked content
+"_ - reference blackhole register, e.g. "_d to delete without saving to a register
 ```
 
 ### Quickfix list
@@ -117,6 +141,11 @@ p - paste file
 <leader>fa - find all files
 <leader>fw - find in files
 <leader>fb - find in buffers
+<leader>ft - find in treesitter
+<leader>fg - find in modified repo files
+<leader>fr - find in registers
+<leader>fq - find in quickfix list
+<leader>fj - find in jumplist
 
 <Tab> - Toggle selection and move to next selection
 <S-Tab> - Toggle selection and move to prev selection
@@ -141,8 +170,23 @@ tl - move buffer to the right in buffer list
 
 ### nvim-dap
 ```
-<leader>d - add breakpoint
+<leader>d - toggle breakpoint
+<leader>n - step over
+<leader>i - step into
+<leader>o - step out
 <leader>c - start debug session
+
+
+<leader>dt - toggle dap-ui elements
+<leader>de - evaluate expression in hover window (run again to focus window)
+
+<!-- dap-ui window actions: -->
+e - edit
+<CR> - expand
+o - open
+d - remove
+r - repl
+t - toggle
 ```
 
 ### mini-map
@@ -173,10 +217,18 @@ ih - "in hunk" text object
 :Gitsign setqflist - send hunks to quickfix list
 ```
 
+### forgit
+```
+tab - toggle mark and move down
+shift-tab - toggle mark and move up
+<M-w> - toggle text wrap in preview window
+<C-j>, <C-k> - scroll list up and down
+<M-j>, <M-k> - scroll preview window up and down
+```
+
 ## Appendix
 ```
 Key Guide:
-
 CR - enter
 C - control
 S - shift

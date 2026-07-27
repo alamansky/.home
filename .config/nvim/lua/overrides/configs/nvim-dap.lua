@@ -56,7 +56,21 @@ for _, language in ipairs({
 			type = "pwa-chrome",
 			name = "Launch Chrome to debug client",
 			request = "launch",
-			url = "http://localhost:8080",
+			url = function()
+				local co = coroutine.running()
+				return coroutine.create(function()
+					vim.ui.input({
+						prompt = "Enter Localhost Port: ",
+						default = "3000",
+					}, function(port)
+						if port == nil or port == "" then
+							return
+						else
+							coroutine.resume(co, "http://localhost:" .. port)
+						end
+					end)
+				end)
+			end,
 			sourceMaps = true,
 			protocol = "inspector",
 			port = 9222,
