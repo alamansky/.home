@@ -23,6 +23,7 @@ The `~/.config/env` directory contains shell files for configuring the environme
 * vars.sh - export statements for regular environment variables
 * path.sh - additions to the $PATH variable, e.g. `PATH="$HOME/.local/bin:$PATH"`
 * functions.sh - shell functions
+* alias.sh - shell aliases
 
 These files should be sourced in `~/.profile` so they can be made available to any login shell.  
 
@@ -72,7 +73,7 @@ ln -s ~/.home/{.cache,.config,.local} ~
 3. Source env files in `~/.profile` so interactive login shells can run ansible playbooks  
 
 ```
-printf ". ~/.config/env/secrets.sh\n. ~/.config/env/vars.sh\n. ~/.config/env/path.sh\n. ~/.config/env/functions.sh\n" >> ~/.profile
+printf ". ~/.config/env/secrets.sh\n. ~/.config/env/vars.sh\n. ~/.config/env/path.sh\n. ~/.config/env/functions.sh\n ~/.config/env/alias.sh\n" >> ~/.profile
 source ~/.profile
 ```
 

@@ -39,7 +39,7 @@ function tb() {
 # $2 - remote machine user
 # $3 - remote machine IP address
 # $4 - remote path
-function up() {
+function upload() {
   rsync -avz $1 $2@$3:$4
 }
 
@@ -48,13 +48,12 @@ function up() {
 # $2 - remote machine IP address
 # $3 - remote path
 # $4 - local path
-function down() {
+function download() {
   rsync -avz $1@$2:$3 $4
 }
 
 # copy ~/docs to a remote machine specified by env vars
 function backup() {
-  cp $XDG_CONFIG_HOME/google-chrome/Default/Bookmarks ~/docs/bookmarks/Bookmarks
   rsync -avz --delete --backup-dir=/home/$D1_USER/backups/docs  ~/docs $D1_USER@$D1_IP:/home/$D1_USER
 }
 
@@ -115,7 +114,14 @@ function serve() {
 
 # search bookmarks
 function bm() {
-  qq '.roots.other.children[] | .url' $BOOKMARKS | fzf | xargs -o $BROWSER
+  qq '.. | .url? | strings' $BOOKMARKS | fzf | xargs -or $BROWSER
+}
+
+# copy bookmarks from Windows to WSL then WSL to docs
+function sync_bm() {
+  cp /mnt/c/Users/$WINDOWS_USER/AppData/Local/Google/Chrome/User\ Data/Profile\ 1/Bookmarks $XDG_CONFIG_HOME/google-chrome/Default/Bookmarks
+  cp $XDG_CONFIG_HOME/google-chrome/Default/Bookmarks ~/docs/bookmarks/Bookmarks
+
 }
 
 # look up function definition
@@ -149,6 +155,3 @@ function amend_commit() {
 function vpn() {
   powershell.exe -c wsl-vpn
 }
-
-# machine-generated appends
-alias chrome="google-chrome-stable"

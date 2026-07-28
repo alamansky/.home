@@ -1,14 +1,14 @@
 # include opt
-export PATH="$PATH:/opt"
+PATH="$PATH:/opt"
 
 # include user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 
 # include user's private bin if it exists (XDG spec)
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+
+# include yarn global install directory
+# https://github.com/yarnpkg/yarn/issues/1321#issuecomment-256488275
+[ -d "$(yarn global bin)" ] && PATH="$(yarn global bin):$PATH"
 
 # machine-generated appends (e.g. from ansible):
