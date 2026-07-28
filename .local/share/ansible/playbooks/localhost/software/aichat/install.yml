@@ -5,10 +5,10 @@
   tasks:
     - name: install binary
       include_tasks:
-        file: ../../library/tasks/download_executable_binary.yml
+        file: ../../library/tasks/download_archived_binary.yml
     - name: create api key env var
       lineinfile:
-        path: $XDG_CONFIG_HOME/env/vars.sh
+        path: $XDG_CONFIG_HOME/env/secrets.sh
         line: |
           export GROQ_API_KEY="{{ GROQ_API_KEY }}"
         state: present

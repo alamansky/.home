@@ -1,0 +1,21 @@
+# destination - the install destination of the executable (fallback to path)
+# url - the download url of the binary file
+# name - the name of the binary
+# path - the path of the installed binary
+- name: create directory
+  become: true
+  file:
+    path: "{{ destination }}"
+    state: directory
+- name: download file
+  become: true
+  get_url:
+    url: "{{ url }}"
+    dest: "{{ destination }}"
+- name: symlink
+  file:
+    src: "{{ path }}"
+    dest: "$HOME/.local/bin/{{ name }}"
+    state: link
+- name: source profile
+  shell: . ~/.profile

@@ -6,4 +6,4 @@
   tasks:
     - name: install binary
       include_tasks:
-        file: ../../library/tasks/download_executable_binary.yml
+        file: ../../library/tasks/download_archived_binary.yml
