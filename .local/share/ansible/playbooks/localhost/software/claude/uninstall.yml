@@ -1,0 +1,28 @@
+- name: uninstall claude
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: delete install directory
+      file:
+        path: "{{ destination }}"
+        state: absent
+    - name: delete symlinks
+      file:
+        path: "$HOME/.local/bin/{{ name }}"
+        state: absent
+    - name: delete home dotfile directory
+      file:
+        path: $HOME/.claude
+        state: absent
+    - name: delete XDG config directory
+      file:
+        path: $XDG_CONFIG_HOME/claude
+        state: absent
+    - name: delete env vars
+      lineinfile:
+        path: $XDG_CONFIG_HOME/zsh/.zshrc
+        state: absent
+        line: |
+          # make claude XDG compliant
+          export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/claude"

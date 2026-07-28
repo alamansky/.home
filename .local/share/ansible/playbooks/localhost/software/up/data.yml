@@ -1,0 +1,6 @@
+# type: executable binary
+name: up
+url: https://github.com/akavel/up/releases/download/v0.4/up
+file: up
+destination: /opt/managed/up/0.4
+path: /opt/managed/up/0.4/up

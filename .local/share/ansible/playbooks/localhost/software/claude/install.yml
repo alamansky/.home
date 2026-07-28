@@ -1,0 +1,20 @@
+- name: install claude
+  hosts: localhost
+  vars_files:
+    - data.yml
+  vars:
+    command: curl -fsSL "{{ script }}" | bash
+  tasks:
+    - name: run install script
+      shell: "{{ command }}"
+    - name: create env vars
+      lineinfile:
+        path: $XDG_CONFIG_HOME/zsh/.zshrc
+        line: |
+          # make claude XDG compliant (partial support)
+          export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/claude"
+        state: present
+        create: yes
+        insertafter: EOF
+    - name: source profile
+      shell: . ~/.profile

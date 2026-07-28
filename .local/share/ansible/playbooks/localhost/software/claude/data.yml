@@ -1,0 +1,4 @@
+# type: install script
+name: claude
+script: https://claude.ai/install.sh
+destination: $HOME/.local/share/claude
