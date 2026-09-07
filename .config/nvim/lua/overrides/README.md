@@ -160,6 +160,8 @@ gT - to go previous tab
 th - move buffer to the left in buffer list
 tl - move buffer to the right in buffer list
 <C-w-T> - Open current buffer in new tab (tabs close when no open buffers)
+:tabnew - Open new tab
+:tcd {path} - Set new tab working directory
 ```
 
 ## Override mappings:

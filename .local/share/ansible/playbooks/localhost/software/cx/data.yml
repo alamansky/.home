@@ -1,0 +1,7 @@
+# type: executable binary
+name: cx
+url: https://github.com/coralogix/cx-cli/releases/download/v0.1.14/cx-0.1.14-x86_64-unknown-linux-musl.tar.gz
+archive: cx-0.1.14-x86_64-unknown-linux-musl.tar.gz
+file: cx-0.1.14-x86_64-unknown-linux-musl
+destination: /opt/managed/cx/0.1.14
+path: /opt/managed/cx/0.1.14/cx

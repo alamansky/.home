@@ -14,7 +14,7 @@ async function main() {
   try {
     const dir = await opendir(inputDir);
     for await (const dirent of dir) {
-      console.log(`Processing file: ${dirent}`);
+      console.log(`Processing file: ${dirent.name}`);
       const contents = await fs.readFile(`${inputDir}/${dirent.name}`);
       const locals = JSON.parse(contents);
       const html = pug.renderFile(templateFile, locals);

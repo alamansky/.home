@@ -1,0 +1,7 @@
+# type: executable binary
+name: usql
+url: https://github.com/xo/usql/releases/download/v0.21.4/usql_static-0.21.4-linux-amd64.tar.bz2
+archive: usql_static-0.21.4-linux-amd64.tar.bz2
+file: usql_static-0.21.4-linux-amd64
+destination: /opt/managed/usql/0.21.4
+path: /opt/managed/usql/0.21.4/usql_static

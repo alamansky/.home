@@ -35,6 +35,10 @@ vim.cmd([[ autocmd VimEnter * if &buftype != "terminal" | lcd %:p:h | endif ]])
 vim.api.nvim_create_autocmd("VimEnter", {
 	pattern = { "*" },
 	callback = function()
+		-- only build the startup layout on a bare launch (no file args)
+		--if vim.fn.argc() > 0 then
+		--  return
+		--end
 		require("nvim-tree.api").tree.open()
 	end,
 })
@@ -171,3 +175,18 @@ vim.api.nvim_create_user_command("VResize", function(opt)
 	end
 end, { nargs = 1 })
 keymap.set("n", "<leader>rv", ":VResize ")
+
+-- yank relative file path and current line number to system register
+keymap.set("n", "<leader>rl", function()
+	vim.fn.setreg("+", vim.fn.expand("%") .. ":" .. vim.fn.line("."))
+end)
+
+-- yank relative file path and visual selection line range to system register
+keymap.set("v", "<leader>rs", function()
+	local start_line = vim.fn.line("v")
+	local end_line = vim.fn.line(".")
+	if start_line > end_line then
+		start_line, end_line = end_line, start_line
+	end
+	vim.fn.setreg("+", vim.fn.expand("%") .. ":" .. start_line .. "-" .. end_line)
+end)
