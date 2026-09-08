@@ -18,6 +18,7 @@ ansible-playbook install.yml
 
 * Creates /usr/local/bin/nobie
 * Creates $XDG_CONFIG_HOME/.nobie
+* Creates /usr/local/share/applications/com.nobie.gpui.desktop
 
 ## Further Reading
 
