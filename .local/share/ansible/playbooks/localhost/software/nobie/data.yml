@@ -1,0 +1,4 @@
+# type: install script
+name: nobie
+script: https://nobie.com/install.sh
+destination: /usr/local/bin/nobie

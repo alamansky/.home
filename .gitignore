@@ -29,5 +29,6 @@
 .config/zsh/.zcompdump
 .config/claude/
 .config/aws/
+.config/.nobie
 # linux registry 
 .config/dconf/

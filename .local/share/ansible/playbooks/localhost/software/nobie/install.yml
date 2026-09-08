@@ -1,0 +1,13 @@
+- import_playbook: ../../software/unzip/install.yml # dependency
+- name: install nobie
+  hosts: localhost
+  vars_files:
+    - data.yml
+  vars:
+    command: curl -fsSL "{{ script }}" | sh -s -- --accept-license
+  tasks:
+    - name: run install script
+      include_tasks:
+        file: ../../library/tasks/run_install_script.yml
+    - name: source profile
+      shell: . ~/.profile

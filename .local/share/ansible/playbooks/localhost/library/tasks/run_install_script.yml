@@ -3,6 +3,7 @@
   file:
     path: "{{ destination }}"
     state: directory
+  when: destination is defined and destination | length > 0
 - name: run install script
   become: true
   shell: "{{ command }}"
@@ -11,3 +12,4 @@
     src: "{{ path }}"
     dest: "$HOME/.local/bin/{{ name }}"
     state: link
+  when: path is defined and path | length > 0
