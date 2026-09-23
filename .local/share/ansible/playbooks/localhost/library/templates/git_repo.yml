@@ -1,5 +1,6 @@
 # type: git repo
-name: # the name of the executable
-repository: # the url of the git repository
-branch: # the branch of the repository to clone
-destination: # the empty destination directory into which to clone the repository
+name: # name of the executable file, as it will be invoked from the shell
+repository: # url of the git repository
+branch: # branch of the repository to clone
+destination: # destination directory into which to clone the repository: `$XDG_DATA_HOME/{name}`
+path: # full path of the executable, used for symlinking: `$XDG_DATA_HOME/{name}/bin/{executable}`

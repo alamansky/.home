@@ -1,2 +1,3 @@
+# type: apt package
 name: zsh
 env_file: $HOME/.zshenv
