@@ -1,0 +1,6 @@
+# type: archived binary
+name: # name of the executable file, as it will be invoked from the shell
+url: # download url for the archive
+archive: # basename of the download url, including the (possibly compound) extension
+destination: # destination directory for the unpacked archive content: `/opt/managed/version/{name}/{version}`
+path: # full path of the executable, used for symlinking: `/opt/managed/version/{name}/{version}/{executable}`

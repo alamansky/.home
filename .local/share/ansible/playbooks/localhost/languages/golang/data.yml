@@ -1,0 +1,3 @@
+language: "golang"
+version: "1.27.0"
+plugin: "https://github.com/asdf-community/asdf-golang"
