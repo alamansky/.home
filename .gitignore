@@ -27,8 +27,14 @@
 .config/chromium/
 .config/zellij
 .config/zsh/.zcompdump
-.config/claude/
+.config/claude/*
+!.config/claude/skills/
+!.config/claude/skills/**
+.config/claude/skills/.playwright-mcp/
+.config/claude/skills/synced/
 .config/aws/
 .config/.nobie
+.config/usql/.cache/
+.config/go/
 # linux registry 
 .config/dconf/
