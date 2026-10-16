@@ -1,0 +1,13 @@
+- name: install python
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: install dependences # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+      shell: |
+        sudo apt update; sudo DEBIAN_FRONTEND=noninteractive apt install -y make build-essential libssl-dev zlib1g-dev \
+        libbz2-dev libreadline-dev libsqlite3-dev curl git \
+        libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libzstd-dev
+    - name: install language
+      include_tasks:
+        file: ../../library/tasks/install_language.yml
