@@ -17,6 +17,8 @@
 .local/share/forgit/
 .local/share/claude/
 .local/share/applications/
+.local/share/cx/
+.local/share/usql/
 
 .config/env/secrets.sh
 .config/JetBrains/
@@ -32,6 +34,7 @@
 !.config/claude/skills/**
 .config/claude/skills/.playwright-mcp/
 .config/claude/skills/synced/
+.config/claude/skills/.trash
 .config/aws/
 .config/.nobie
 .config/usql/.cache/

@@ -52,13 +52,24 @@ tables_yaml="${USQL_CONFIG%/*}/.cache/tables.yaml"
 qq -r ".${db} // empty" "$tables_yaml"
 ```
 
-If the output is empty, the table list has not been populated yet — run `get_tables.sh` from the skill's base directory to populate it, then re-run the lookup above:
+If the output is empty, the table list has not been populated yet — run `./scripts/get_tables.sh` to populate it, then re-run the lookup above:
 
 ```bash
 bash scripts/get_tables.sh "$db"
 ```
 
-## Step 4 — Run the query
+## Step 4 - Discover existing queries from history
+
+All queries made by agents using this skill are persisted to `~/.local/share/usql/`, in a `.sql` file named after the connection used (e.g. `platform_us.sql`).
+
+Before formulating a new query, check the relevant connection file to see if existing query can be reused or modified. After running a query, save it to the connection file. Create the file if it does not already exist. Each query must be preceded by a `--` comment describing its purpose:
+
+```sql
+-- Count users created in the last 30 days
+SELECT COUNT(*) FROM users WHERE created_at >= NOW() - INTERVAL '30 days';
+```
+
+## Step 5 — Run the query
 
 Set `CONN` to the connection name (representing the database and environment against which to run a query), and set `SQL` to the query itself, then run the following script:
 

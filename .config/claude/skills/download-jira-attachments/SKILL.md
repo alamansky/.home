@@ -43,14 +43,14 @@ Then call `getJiraIssue` with the following parameters:
 
 The response includes an `attachment` array. Each entry has the following components:
 - `filename` — the original file name
-- `content` — the authenticated download URL (pattern: `https://api.atlassian.com/ex/jira/{cloudId}/rest/api/3/attachment/content/{attachmentId}`)
+- `content` — the attachment download URL. The attachment ID should always be correct, but the host in this URL may be an internal Atlassian host that is not publicly accessible. If the host differs from the `url` property returned by the `getAccessibleAtlassianResources` call, always use the later value as the host in the final download url: `{host}/rest/api/3/attachment/content/{attachmentId}`
 - `mimeType` and `size`
 
 If there are multiple attachments, list them and ask the user which to download (or download all if analysis requires it).
 
 ## Step 3 — Download to the scratchpad
 
-Use the `content` URL from Step 2 and the user's Atlassian credentials (basic auth: email + API key):
+Use the download URL determined in Step 2 and the user's Atlassian credentials (basic auth: email + API key):
 
 ```bash
 CONTENT_URL="<content URL from attachment metadata>"

@@ -67,27 +67,10 @@ function zshell() {
   chsh -s $(which zsh) $(whoami)
 }
 
-# copy stdout to Windows clipboard
-# e.g. `echo 'hello world' | copy`
-function copy() {
-  clip.exe
-}
-
-# paste Windows clipboard to stdout
-# e.g. `paste > hello_world.txt`
-function paste() {
-  powershell.exe -c Get-Clipboard
-}
-
 # pretty-print json
 # e.g. `cat unformatted.json | pp-json`
 function pp-json() {
   python3 -m json.tool
-}
-
-# pretty-print json in Windows clipboard
-pp-json-cb() {
-  paste | pp-json | copy
 }
 
 # download repo subdirectory with git

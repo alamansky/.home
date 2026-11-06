@@ -4,4 +4,5 @@ return {
 	"cssls", -- css
 	"ts_ls", -- typescript
 	"jdtls", -- java
+	"pylsp", --python
 }
