@@ -1,0 +1,6 @@
+# type: archived binary
+name: duckdb
+url: https://install.duckdb.org/v2.0.0/duckdb-cli-linux-amd64.tar.gz
+archive: duckdb-cli-linux-amd64.tar.gz
+destination: /opt/managed/duckdb/2.0.0
+path: /opt/managed/duckdb/2.0.0/duckdb

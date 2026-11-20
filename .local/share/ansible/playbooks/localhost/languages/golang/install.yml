@@ -6,3 +6,15 @@
     - name: install language
       include_tasks:
         file: ../../library/tasks/install_language.yml
+    - name: set env vars
+      lineinfile:
+        path: $HOME/.config/env/vars.sh
+        line: |
+          if [ -n "$ZSH_VERSION" ]; then
+            . "${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh"
+          elif [ -n "$BASH_VERSION" ]; then
+            . "${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.bash"
+          fi
+        create: yes
+        state: present
+        insertafter: EOF

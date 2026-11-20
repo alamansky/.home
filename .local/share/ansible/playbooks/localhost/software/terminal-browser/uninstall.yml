@@ -1,0 +1,18 @@
+- name: uninstall terminal-browser
+  hosts: localhost
+  vars_files:
+    - data.yml
+  tasks:
+    - name: uninstall binary
+      include_tasks:
+        file: ../../library/tasks/delete_install_directory.yml
+    - name: delete config, data, and state
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - $XDG_CONFIG_HOME/terminal-browser
+        - $XDG_DATA_HOME/terminal-browser-c5f5e6d9
+        - $XDG_STATE_HOME/terminal-browser
+        - $XDG_STATE_HOME/terminal-browser-c5f5e6d9
+        - $XDG_STATE_HOME/terminal-browser-interop

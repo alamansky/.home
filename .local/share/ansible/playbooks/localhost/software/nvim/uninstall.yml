@@ -7,19 +7,12 @@
     - name: uninstall binary
       include_tasks:
         file: ../../library/tasks/delete_install_directory.yml
-    - name: delete config
+    - name: delete config, state, data, and cache
       file:
-        path: $XDG_CONFIG_HOME/nvim
+        path: "{{ item }}"
         state: absent
-    - name: delete state
-      file:
-        path: $XDG_STATE_HOME/nvim
-        state: absent
-    - name: delete data
-      file:
-        path: $XDG_DATA_HOME/nvim
-        state: absent
-    - name: delete cache
-      file:
-        path: $XDG_CACHE_HOME/nvim
-        state: absent
+      loop:
+        - $XDG_CONFIG_HOME/nvim
+        - $XDG_STATE_HOME/nvim
+        - $XDG_DATA_HOME/nvim
+        - $XDG_CACHE_HOME/nvim

@@ -3,22 +3,15 @@
   vars_files:
     - data.yml
   tasks:
-    - name: delete install directory
+    - name: delete install directory, symlinks, and config
       file:
-        path: "{{ destination }}"
+        path: "{{ item }}"
         state: absent
-    - name: delete symlinks
-      file:
-        path: "$HOME/.local/bin/{{ name }}"
-        state: absent
-    - name: delete home dotfile directory
-      file:
-        path: $HOME/.claude
-        state: absent
-    - name: delete XDG config directory
-      file:
-        path: $XDG_CONFIG_HOME/claude
-        state: absent
+      loop:
+        - "{{ destination }}"
+        - $HOME/.local/bin/{{ name }}
+        - $HOME/.claude
+        - $XDG_CONFIG_HOME/claude
     - name: delete env vars
       lineinfile:
         path: $XDG_CONFIG_HOME/zsh/.zshrc

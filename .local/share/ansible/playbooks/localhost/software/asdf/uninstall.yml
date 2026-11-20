@@ -15,11 +15,10 @@
         - export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
         - export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
         - export PATH="${ASDF_DATA_DIR}/shims:$PATH
-    - name: delete shims
+    - name: delete shims and config
       file:
-        path: $XDG_DATA_HOME/asdf
+        path: "{{ item }}"
         state: absent
-    - name: delete config
-      file:
-        path: $XDG_CONFIG_HOME/asdf/asdfrc
-        state: absent
+      loop:
+        - $XDG_DATA_HOME/asdf
+        - $XDG_CONFIG_HOME/asdf/asdfrc
